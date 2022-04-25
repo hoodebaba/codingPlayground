@@ -71,4 +71,26 @@ internal class CustomStackTest {
         assertEquals( 3, stack.size)
         assertEquals(1, stack.getMin())
     }
+
+    @Test
+    fun `given a stack with multiple value and multiple operation,should return correct min second`() {
+        val stack = CustomStack()
+        stack.push(1)
+        stack.push(2)
+        stack.push(3)
+        assertEquals( 3, stack.size)
+        assertEquals(1, stack.getMin())
+
+        stack.pop()
+        stack.push(0)
+        stack.push(4)
+        assertEquals( 4, stack.size)
+        assertEquals(0, stack.getMin())
+
+        stack.pop()
+        stack.pop()
+        stack.push(5)
+        assertEquals( 3, stack.size)
+        assertEquals(1, stack.getMin())
+    }
 }

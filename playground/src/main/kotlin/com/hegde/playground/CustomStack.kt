@@ -12,14 +12,15 @@ class CustomStack {
             val currentMin = value
             headNode = Node(null, null, value, currentMin)
             size++
-        } else {
-            val currentMin = headNode?.currentMin?.let {
-                if (it > value) value else it
-            } ?: value
-            val tempNode = headNode
-            headNode = Node(tempNode, null, value, currentMin)
-            size++
+            return
         }
+        val currentMin = headNode?.currentMin?.let {
+            if (it > value) value else it
+        } ?: value
+        val tempNode = headNode
+        headNode = Node(tempNode, null, value, currentMin)
+        size++
+
     }
 
     fun pop(): Int? {

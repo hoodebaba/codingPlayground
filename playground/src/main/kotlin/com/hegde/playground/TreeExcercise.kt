@@ -1,8 +1,8 @@
 package com.hegde.playground
 
-class TreeNode(var `val`: Int) {
-    var left: TreeNode? = null
-    var right: TreeNode? = null
+open class TreeNode(open var `val`: Int) {
+    open var left: TreeNode? = null
+    open var right: TreeNode? = null
 }
 
 fun preorderTraversal(root: TreeNode?): List<Int?> {
@@ -81,4 +81,23 @@ fun preOrderBFS(root: TreeNode, lvl: Int, nodeValues: MutableList<MutableList<In
     return nodeValues
 }
 
+
+fun isValidBST(root: TreeNode?): Boolean {
+    if (null == root)
+        return false
+
+    if (null == root.left && null == root.right)
+        return false
+
+    if (null != root.left)
+        isValidBST(root.left)
+
+    if (root.`val` < (root.left?.`val` ?: 0) && root.`val` > (root.right?.`val` ?: 0))
+        return false
+
+    if (null != root.right)
+        isValidBST(root.right)
+
+    return true
+}
 

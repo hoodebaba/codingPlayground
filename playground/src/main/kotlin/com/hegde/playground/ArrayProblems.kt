@@ -26,4 +26,19 @@ class ArrayProblems {
         nums.sort()
         return nums
     }
+
+    fun findWords(words: Array<String>): Array<String> {
+        val firstRow =  "qwertyuiop"
+        val secondRow = "asdfghjkl"
+        val thirdRow = "zxcvbnm"
+        val answers = arrayListOf<String>();
+        for (word in words) {
+            if (firstRow.length == firstRow.toSet().plus(word.lowercase().toSet()).size
+                || secondRow.length == secondRow.toSet().plus(word.lowercase().toSet()).size
+                || thirdRow.length == thirdRow.toSet().plus(word.lowercase().toSet()).size) {
+                answers.add(word)
+            }
+        }
+        return answers.toTypedArray()
+    }
 }
